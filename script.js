@@ -26,7 +26,7 @@ class Model {
     // add task to tasks data structure
     this.tasks.push(task)
 
-    
+    // init view if datastructure is changed
     this.ifTaskListChanged(this.tasks)
   }
 
@@ -61,7 +61,7 @@ class View {
 
   // display tasks
   displayTasks(tasks){
-    //delete old
+    //delete old displayed tasks
     while(this.taskList.firstChild){
       this.taskList.removeChild(this.taskList.firstChild)
     }
@@ -74,6 +74,7 @@ class View {
       tasks.forEach(task => {
       // create li
       const li = this.setElement('li')
+      // set li id according to model data id
       li.id = task.id
       // task item complete toggle check
       const checkbox = this.setElement('input')
@@ -136,7 +137,10 @@ class Controller {
     this.model = model
     this.view = view
 
+    // update view
     this.model.TaskListChanged(this.displayTasks)
+    
+    // submit event on view
     this.view.addTask(this.handleAddTask)
 
     this.displayTasks(this.model.tasks)
