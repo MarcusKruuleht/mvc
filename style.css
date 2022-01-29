@@ -78,3 +78,13 @@ li span {
   border-radius: 4px;
   border: 2px solid transparent;
 }
+
+li span:hover {
+  background: rgba(179, 215, 255, 0.52);
+}
+
+li span:focus {
+  outline: 0;
+  border: 2px solid #007bff;
+  background: rgba(179, 207, 255, 0.52)
+}

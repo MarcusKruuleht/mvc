@@ -26,15 +26,13 @@ class Model {
     // add task to tasks data structure
     this.tasks.push(task)
 
-    this.onTaskListChanged(this.tasks)
+    
+    this.ifTaskListChanged(this.tasks)
   }
 
   TaskListChanged(callback){
-    this.onTaskListChanged = callback
+    this.ifTaskListChanged = callback
   }
-
-
-
 }
 
 class View {
@@ -149,7 +147,6 @@ class Controller {
   }
 
   handleAddTask = taskText => {
-    console.log('controller send taskText to model')
     this.model.addTask(taskText)
   }
 }
